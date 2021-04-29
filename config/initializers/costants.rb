@@ -1,3 +1,3 @@
 module Constants
-  TITLE = 'Small_Task'.freeze
+  TITLE = 'Small Task'.freeze
 end
