@@ -1,25 +1,22 @@
 <% provide(:title, "Home") %>
-<h1>Users</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="main-back-img">
+  <div class="container">
+    <div class="main-textbox">
+      <h1>Small Task</h1>
+      <p class="text-detail">(スモール タスク)</p>
+      <div class="main-textbox-detail">
+        <p>小さな課題を</p>
+        <p>見つけよう</p>
+      </div>
+      <button type="button" class="btn btn-success">新規登録</button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="main-content">
+    <div class="main-content-box">
+      <div class="text-detail">"Small Task"<span>とは？</span></div>
+      <p></p>
+    </div>
+  </div>
+</div>

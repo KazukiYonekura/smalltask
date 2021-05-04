@@ -1,7 +1,7 @@
 /*=== HEADER ===*/
 
 .header {
-  position: relative;
+  position: fixed;
   top: 0;
   width: 100%;
   background-color: #F8F9FA;
@@ -14,7 +14,6 @@
   width: 100%;
   display: block;
   min-height: 35px;
-  height: auto;
 }
 
 .topBar-box{
@@ -32,7 +31,7 @@
 }
 
 .topBer-left img{
-  height: 35px;
+  height: 25px;
 }
 
 .topBer-right{
@@ -43,19 +42,25 @@
 
 .topBer-right-menu{
   display: flex;
+  margin-bottom: 0;
 }
 
 .topBer-right-menu li{
-  font-size: 20px;
-  margin-right: 20px;
+  margin-right: 25px;
   list-style: none;
+}
+
+.topBer-right-menu a{
+  font-size: 18px;
+}
+
+.hidden-box{
+  display: none;
 }
 
 /*=== FOOTER ===*/
 
 .footer{
-  position: absolute;
-  bottom: 0;
   display: block;
   width: 100%;
   height: 50px;
