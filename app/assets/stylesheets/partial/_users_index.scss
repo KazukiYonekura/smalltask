@@ -21,6 +21,7 @@
   border-radius: 10px;
   min-width: 400px;
   padding: 30px;
+  text-align: center;
 }
 
 .main-textbox h1{
@@ -37,7 +38,10 @@
   font-size: 25px;
   width: 70%;
   margin-top: 20px;
-  margin-left: 60px;
+}
+
+.btn.btn-success{
+  background-color: #2DA54E;
 }
 
 .main-textbox-detail p{
@@ -51,24 +55,107 @@
   text-align: center;
 }
 
+@media (max-width: 479px) {
+  .main-textbox{
+    width: 70%;
+    height: 300px;
+    margin: 100px auto 0;
+    min-width: 200px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .main-textbox h1{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .main-textbox p{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .main-textbox>.btn{
+    font-size: 16px;
+    width: 70%;
+    margin-top: 5px;
+  }
+
+  .main-textbox-detail p{
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  .text-detail{
+    border-bottom: 1px solid #222;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
+
 .main-content{
   width: 80%;
-  height: 600px;
+  height: auto;
   padding: 50px;
   margin: 50px auto;
   border: 3px solid rgba(0, 0, 0, 0.4);
   border-radius: 15px;
 }
 
-.main-content-box p{
-  font-size: 30px;
+.main-content p{
+  font-size: 22px;
+  line-height: 2em;
   text-align: center;
 }
 
-.main-content-box>.text-detail{
+.main-content>.text-detail{
   font-size: 50px;
 }
 
 .text-detail>span{
  font-size: 30px;
 }
+
+@media (max-width: 770px) {
+  .main-content{
+    width: 80%;
+    padding: 10px;
+  }
+
+  .main-content p{
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .main-content>.text-detail{
+    font-size: 40px;
+  }
+
+  .text-detail>span{
+   font-size: 18px;
+  }
+}
+
+
+@media (max-width: 479px) {
+  .main-content{
+    width: 80%;
+    padding: 10px;
+  }
+
+  .main-content p{
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .main-content>.text-detail{
+    font-size: 30px;
+  }
+
+  .text-detail>span{
+   font-size: 20px;
+  }
+}
+
+
