@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'bootstrap', '~> 5.0.0.beta1'
 
+gem 'rails-i18n'
+
 gem 'bcrypt'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

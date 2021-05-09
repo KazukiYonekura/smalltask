@@ -1,14 +1,15 @@
 RSpec.describe User, type: :model do
-
-  let(:user) { User.new(
-    name: "Example User",
-    email: "user@example.com",
-    password: "foobar",
-    password_confirmation: "foobar"
-  ) }
+  let(:user) do
+    User.new(
+      name: "Example User",
+      email: "user@example.com",
+      password: "foobar",
+      password_confirmation: "foobar"
+    )
+  end
 
   describe "User" do
-    it "should be valid" do
+    it "is valid" do
       expect(user).to be_valid
     end
   end
@@ -54,7 +55,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    it "should accept valid addresses" do
+    it "accepts valid addresses" do
       user.email = "user@example.com"
       expect(user).to be_valid
 
@@ -71,7 +72,7 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
 
-    it "should reject invalid addresses" do
+    it "rejects invalid addresses" do
       user.email = "user@example,com"
       expect(user).to be_invalid
 
@@ -91,14 +92,14 @@ RSpec.describe User, type: :model do
       expect(user).to be_invalid
     end
 
-    it "should be unique" do
+    it "is unique" do
       duplicate_user = user.dup
       duplicate_user.email = user.email.upcase
       user.save!
       expect(duplicate_user).to be_invalid
     end
 
-    it "should be saved as lower-case" do
+    it "is saved as lower-case" do
       user.email = "Foo@ExAMPle.CoM"
       user.save!
       expect(user.reload.email).to eq 'foo@example.com'
@@ -106,7 +107,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "password and password_confirmation" do
-    it "should be present (nonblank)" do
+    it "is present (nonblank)" do
       user.password = user.password_confirmation = " " * 6
       expect(user).to be_invalid
     end

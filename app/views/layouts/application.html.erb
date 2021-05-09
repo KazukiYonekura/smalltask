@@ -13,6 +13,9 @@
   <body>
     <div class="main-wrpper">
       <%= render 'shared/header' %>
+      <% flash.each do |message_type, message| %>
+        <%= tag.div message, class: "alert alert-#{message_type}" %>
+      <% end %>
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>
