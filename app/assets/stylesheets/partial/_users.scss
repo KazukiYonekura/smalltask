@@ -1,4 +1,4 @@
-/*=== MAIN CONTENT ===*/
+/*=== INDEX ===*/
 
 .main-back-img{
   width: 100%;
@@ -158,4 +158,82 @@
   }
 }
 
+/*=== NEW ===*/
 
+.new-container{
+  width: 100%;
+  min-height: 700px;
+  background-color: #CBFFCB;
+}
+
+.signup-container {
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.sessionBox{
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 35px;
+  background-color: #fff;
+  border: 5px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+  border-radius: 10px;
+}
+
+.signup-logo-img {
+  text-align: center;
+}
+
+.signup-title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 30px;
+  color: #029903;
+  margin-bottom: 2rem;
+}
+
+.form-group{
+  margin: 0 auto 15px;
+  text-align: center;
+  width: 50%;
+}
+
+.form-group>.btn{
+  width: 80%;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .form-group>.btn{
+    font-size: 12px;
+    padding: 5px;
+
+  }
+}
+
+
+.form-control {
+  margin-bottom: 0;
+}
+
+.form-submit {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    padding-bottom: 0;
+  }
+}
+
+.field_with_errors .form-control {
+  border-color: red;
+}
+
+.alert-form-extend {
+  margin: 1.5rem 0 1rem;
+}
