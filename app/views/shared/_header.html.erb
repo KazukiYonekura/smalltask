@@ -5,19 +5,32 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="topBer-left">
-          <%= link_to image_tag("/logo.png"), users_path %>
+          <%= link_to image_tag("/logo.png"), root_path %>
         </div>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse justify-content-end align-items-center collapse show" id="navbarToggleDemo01">
           <ul class="navbar-nav mt-2 mt-lg-0 header-font">
-            <li class="nav-item active">
-              <a class="topBer-nav-link" href="/users/new"><i class="fas fa-user-edit"></i>ユーザー登録</a>
-            </li>
-            <li class="nav-item">
-              <a class="topBer-nav-link"><i class="fas fa-sign-in-alt"></i>ログイン</a>
-            </li>
+            <% if logged_in? %>
+              <li class="nav-item active">
+                <i class="fas fa-user-edit"></i>
+                <%= link_to "プロフィール", current_user, class: "topBer-nav-link" %>
+              </li>
+              <li class="nav-item">
+                <i class="fas fa-sign-in-alt"></i>
+                <%= link_to "ログアウト", logout_path, method: :delete, class: "topBer-nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item active">
+                <i class="fas fa-user-edit"></i>
+                <%= link_to "ユーザー登録", signup_path, class: "topBer-nav-link" %>
+              </li>
+              <li class="nav-item">
+                <i class="fas fa-sign-in-alt"></i>
+                <%= link_to "ログイン", login_path, class: "topBer-nav-link" %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </nav>
