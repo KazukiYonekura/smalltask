@@ -1,7 +1,6 @@
 inherit_from:
   - .rubocop_airbnb.yml
 
-#以下にはrubocopで検証したくないフォルダを指定する
 AllCops:
   Exclude:
     - 'db/**/*'
@@ -14,4 +13,5 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
-    - 'spec/*'
+    - 'spec/**/*'
+    - 'app/helpers/sessions_helper.rb'

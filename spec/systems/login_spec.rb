@@ -1,5 +1,4 @@
 RSpec.describe "Logins", type: :system do
-
   let(:user) { create(:user) }
 
   describe "Login" do
@@ -50,17 +49,17 @@ RSpec.describe "Logins", type: :system do
     end
 
     describe "Logout" do
-    it "contains login button without logout button" do
-      visit login_path
-      fill_in 'メールアドレス', with: user.email
-      fill_in 'パスワード', with: user.password
-      find(".form-submit").click
-      expect(current_path).to eq user_path(user.id)
-      expect(page).to have_selector '.show-container'
-      click_on 'ログアウト'
-      expect(current_path).to eq root_path
-      expect(page).to have_selector '.home-container'
+      it "contains login button without logout button" do
+        visit login_path
+        fill_in 'メールアドレス', with: user.email
+        fill_in 'パスワード', with: user.password
+        find(".form-submit").click
+        expect(current_path).to eq user_path(user.id)
+        expect(page).to have_selector '.show-container'
+        click_on 'ログアウト'
+        expect(current_path).to eq root_path
+        expect(page).to have_selector '.home-container'
+      end
     end
-  end
   end
 end
