@@ -5,5 +5,4 @@ RSpec.describe "Sessions", type: :request do
     it "returns http success" do
     end
   end
-
 end

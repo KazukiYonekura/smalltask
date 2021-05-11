@@ -1,5 +1,4 @@
 RSpec.describe "UsersLogins", type: :request do
-
   let(:user) { create(:user) }
 
   describe "GET /login" do
@@ -9,8 +8,8 @@ RSpec.describe "UsersLogins", type: :request do
         post login_path, params: {
           session: {
             email: "",
-            password: ""
-          }
+            password: "",
+          },
         }
         expect(flash[:danger]).to be_truthy
         expect(is_logged_in?).to be_falsey
@@ -23,8 +22,8 @@ RSpec.describe "UsersLogins", type: :request do
         post login_path, params: {
           session: {
             email: user.email,
-            password: user.password
-          }
+            password: user.password,
+          },
         }
         expect(flash[:danger]).to be_falsey
         expect(is_logged_in?).to be_truthy
@@ -35,8 +34,8 @@ RSpec.describe "UsersLogins", type: :request do
         post login_path, params: {
           session: {
             email: user.email,
-            password: user.password
-          }
+            password: user.password,
+          },
         }
         expect(is_logged_in?).to be_truthy
         delete logout_path
