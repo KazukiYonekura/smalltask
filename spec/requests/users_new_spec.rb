@@ -1,7 +1,7 @@
 RSpec.describe "UsersNews", type: :request do
   describe "GET /users_news" do
     it "is invalid signup information" do
-      get new_user_path
+      get signup_path
       expect do
         post users_path, params: {
           user: {
@@ -15,7 +15,7 @@ RSpec.describe "UsersNews", type: :request do
     end
 
     it "is valid signup information" do
-      get new_user_path
+      get signup_path
       expect do
         post users_path, params: {
           user: {

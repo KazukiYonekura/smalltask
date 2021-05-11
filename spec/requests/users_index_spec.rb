@@ -1,7 +1,7 @@
 RSpec.describe "UsersNews", type: :request do
   describe "index test" do
     before do
-      get users_path
+      get signup_path
     end
 
     it '200が返ってくる' do

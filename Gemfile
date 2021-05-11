@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rexml'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rubocop-airbnb'
 end
 
