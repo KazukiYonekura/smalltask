@@ -15,20 +15,20 @@
             <% if logged_in? %>
               <li class="nav-item active">
                 <i class="fas fa-user-edit"></i>
-                <%= link_to "プロフィール", current_user, class: "topBer-nav-link" %>
+                <%= link_to "プロフィール", current_user, class: "topBer-nav-link profile-button" %>
               </li>
               <li class="nav-item">
                 <i class="fas fa-sign-in-alt"></i>
-                <%= link_to "ログアウト", logout_path, method: :delete, class: "topBer-nav-link" %>
+                <%= link_to "ログアウト", logout_path, method: :delete, class: "topBer-nav-link logout-button" %>
               </li>
             <% else %>
               <li class="nav-item active">
                 <i class="fas fa-user-edit"></i>
-                <%= link_to "ユーザー登録", signup_path, class: "topBer-nav-link" %>
+                <%= link_to "ユーザー登録", signup_path, class: "topBer-nav-link create-button" %>
               </li>
               <li class="nav-item">
                 <i class="fas fa-sign-in-alt"></i>
-                <%= link_to "ログイン", login_path, class: "topBer-nav-link" %>
+                <%= link_to "ログイン", login_path, class: "topBer-nav-link login-button" %>
               </li>
             <% end %>
           </ul>
