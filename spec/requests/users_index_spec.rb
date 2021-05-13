@@ -4,7 +4,7 @@ RSpec.describe "UsersNews", type: :request do
       get signup_path
     end
 
-    it '200が返ってくる' do
+    it 'returns a 200 response' do
       expect(response).to be_successful
       expect(response).to have_http_status 200
     end
