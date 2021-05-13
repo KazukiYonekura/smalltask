@@ -33,3 +33,11 @@ a{
 li{
   list-style: none;
 }
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    padding-bottom: 0;
+  }
+}
