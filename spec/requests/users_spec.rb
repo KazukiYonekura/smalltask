@@ -1,5 +1,4 @@
 RSpec.describe "Users", type: :request do
-
   let(:user) { create(:user) }
 
   describe "GET /users/:id" do

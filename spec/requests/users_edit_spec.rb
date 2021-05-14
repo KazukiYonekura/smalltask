@@ -1,5 +1,4 @@
 RSpec.describe "UsersEdits", type: :request do
-
   let(:user) { create(:user) }
   let(:other_user) { create(:other_user) }
 
@@ -9,8 +8,8 @@ RSpec.describe "UsersEdits", type: :request do
         name: "",
         email: "foo@invalid",
         password: "foo",
-        password_confirmation: "bar"
-      }
+        password_confirmation: "bar",
+      },
     }
   end
 
@@ -20,8 +19,8 @@ RSpec.describe "UsersEdits", type: :request do
         name: "Example User",
         email: "user@example.com",
         password: "password",
-        password_confirmation: "password"
-      }
+        password_confirmation: "password",
+      },
     }
   end
 
@@ -58,6 +57,7 @@ RSpec.describe "UsersEdits", type: :request do
         expect(request.fullpath).to eq root_path
       end
     end
+
     context "valid" do
       it "is valid edit information" do
         log_in_as(user)
