@@ -1,5 +1,4 @@
 module ApplicationHelpers
-
   def is_logged_in?
     !session[:user_id].nil?
   end
@@ -10,8 +9,8 @@ module ApplicationHelpers
       session: {
         email: user.email,
         password: user.password,
-        remember_me: remember_me
-      }
+        remember_me: remember_me,
+      },
     }
     follow_redirect!
   end
