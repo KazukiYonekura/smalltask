@@ -165,7 +165,7 @@
   min-height: 700px;
 }
 
-.signup-container {
+.container-padding{
   padding: 50px;
 }
 
@@ -247,6 +247,11 @@
 }
 
 .form-go-to-signup-or-login{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.form-go-to-password-reset{
   text-align: center;
 }
 

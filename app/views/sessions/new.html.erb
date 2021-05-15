@@ -1,9 +1,7 @@
 <% provide(:title, 'ログイン') %>
 <div class="new-container">
-  <div class="container signup-container login-container">
+  <div class="container container-padding login-container">
     <div class="sessionBox">
-      <div class="signup-logo-img">
-      </div>
       <h1 class="signup-title">ログイン</h1>
       <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
         <div class="form-group">
@@ -21,6 +19,7 @@
         </div>
       <% end %>
       <p class="form-go-to-signup-or-login">新しくはじめる方は<%= link_to "こちら", signup_path %></p>
+      <p class="form-go-to-password-reset">パスワードを忘れた方は<%= link_to "こちら", new_password_reset_path %></p>
     </div>
     <div class="sessionBox-test">
       <p class="testuser-title">テスト用ログインアカウント</p>
