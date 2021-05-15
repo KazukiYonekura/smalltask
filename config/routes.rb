@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :sessions,  only: :show
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :guest_sessions, only: [:create]
 end

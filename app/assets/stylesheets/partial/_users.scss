@@ -180,14 +180,15 @@
 }
 
 .sessionBox-test{
-  width: 40%;
-  max-width: 300px;
+  width: 50%;
+  max-width: 400px;
   margin: 0 auto;
   padding: 15px;
   background-color: #fff;
   border: 5px solid rgba(0, 0, 0, 0.4);
   box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
   border-radius: 10px;
+  text-align: center;
 }
 
 .testuser-title{
@@ -221,14 +222,6 @@
   align-items: center;
 }
 
-@media (max-width: 500px) {
-  .form-group>.btn{
-    font-size: 12px;
-    padding: 5px;
-
-  }
-}
-
 .form-control {
   margin-bottom: 0;
 }
@@ -255,6 +248,43 @@
   text-align: center;
 }
 
+@media (max-width: 500px) {
+
+  .signup-title{
+    font-size: 20px;
+  }
+
+  .form-group>input{
+    font-size: 12px;
+  }
+
+  .form-check-label{
+    font-size: 12px;
+  }
+
+  .form-group>.btn{
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .sessionBox-test>.btn{
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .form-go-to-signup-or-login{
+    font-size: 12px;
+  }
+
+  .form-go-to-password-reset{
+    font-size: 12px;
+  }
+
+  .testuser-title{
+    font-size: 12px;
+  }
+}
+
 /*=== EDIT ===*/
 
 .edit-title{
@@ -269,6 +299,10 @@
 }
 .card-deck{
   margin-bottom: 100px;
+}
+
+.card-header{
+  text-align: center;
 }
 
 .col-md-6{
@@ -291,4 +325,27 @@
 
 .card-body>.form-group:last-child{
   margin-top: 40px;
+}
+
+@media (max-width: 500px) {
+  .form-title-edit{
+    font-size: 20px;
+  }
+
+  .form-group-label{
+    font-size: 12px;
+  }
+
+  .card-header{
+    font-size: 20px;
+  }
+
+  .card-body>.form-group{
+    margin-bottom: 10px;
+  }
+
+  .card-body>.form-group:last-child{
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
 }
