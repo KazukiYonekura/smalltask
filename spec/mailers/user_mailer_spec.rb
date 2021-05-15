@@ -24,8 +24,4 @@ RSpec.describe UserMailer, type: :mailer do
       expect(mail.body.encoded.split(/\r\n/).map { |i| Base64.decode64(i) }.join).to include CGI.escape(user.email)
     end
   end
-
-  # describe "password_reset" do
-  #   let(:mail) { UserMailer.password_reset }
-  # end
 end
