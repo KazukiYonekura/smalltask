@@ -16,3 +16,4 @@ AllCops:
     - 'spec/**/*'
     - 'spec/factories/users.rb'
     - 'app/helpers/sessions_helper.rb'
+    - 'app/controllers/password_resets_controller.rb'
