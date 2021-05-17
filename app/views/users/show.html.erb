@@ -1,3 +1,56 @@
 <% provide(:title, @user.name) %>
 <div class="container show-container">
+  <div class="row">
+    <div class="col">
+      <div class="user-box">
+        <div class="user-box-left">
+          <div class="user-box-image">
+            <%= image_tag("default_user.png") %>
+          </div>
+          <div class="user-box-name">
+            <p><%= @user.name %>さん</p>
+          </div>
+        </div>
+        <div class="user-box-right">
+          <div class="user-box-task-count">
+            <i class="fas fa-tasks fa-2x"></i>
+            <p>500</p>
+          </div>
+          <div class="user-box-task-text">
+            <p>達成タスク数</p>
+          </div>
+        </div>
+      </div>
+      <% if @user.posts.any? %>
+        <div class="user-logs-box">
+          <ol class="user-posts">
+          <% @posts.each do |post| %>
+              <li id ="post-<%= post.id %>">
+                <span class="row log-list">
+                  <span class="col-2 log-timestamp d-none d-md-inline-block log-timestamp-block">
+                    <span class="log-timestamp"><%= time_ago_in_words(post.created_at) %>前</span>
+                  </span>
+                  <span class="col-md-10 col-log-memos">
+                    <div class="log-time-and-edit">
+                      <div class="row">
+                        <span class="log-time col-3"></span>
+                        <span class="col-7 log-timestamp log-timestamp-inline"><%= time_ago_in_words(post.created_at) %>前</span>
+                      </div>
+                    </div>
+                    <span class="log-memo"><%= post.text %></span>
+                    <span class="log-picture"><%= post.picture %></span>
+                  </span>
+                </span>
+              </li>
+          <% end %>
+          </ol>
+        </div>
+        <div class="pagination-box">
+          <%= paginate @posts %>
+        </div>
+      <% else %>
+        <span>まだ投稿がありません</span>
+      <% end %>
+    </div>
+  </div>
 </div>

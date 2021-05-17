@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.page(params[:page]).per(10)
   end
 
   def new
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = "認証用メールを送信しました。登録時のメールアドレスから認証を済ませてください"
+      flash[:info] = '認証用メールを送信しました。登録時のメールアドレスから認証を済ませてください'
       redirect_to root_url
     else
       render 'new'

@@ -134,4 +134,10 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  it "destroys assosiated posts" do
+    user.save!
+    user.posts.create!(text: "Lorem Ipsum")
+    expect { user.destroy }.to change(Post, :count).by(-1)
+  end
 end
