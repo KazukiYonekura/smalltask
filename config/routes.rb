@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+  get 'posts/create'
   root 'users#index'
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
