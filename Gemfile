@@ -27,6 +27,14 @@ gem 'bcrypt'
 gem 'kaminari'
 
 gem 'kaminari-bootstrap'
+
+gem 'aws-sdk-s3', require: false
+
+gem 'mini_magick'
+
+gem 'image_processing'
+
+gem 'mini_racer'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
