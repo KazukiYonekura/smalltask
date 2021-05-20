@@ -298,8 +298,10 @@
   font-weight: 500;
   color: #029903;
 }
+
 .card-deck{
-  margin-bottom: 100px;
+  margin: 0 auto 100px;
+  max-width: 600px;
 }
 
 .card-header{
@@ -353,13 +355,24 @@
 
 /*=== SHOW ===*/
 
+.show-up-container{
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 50px;
+}
+
 .user-box{
   display: flex;
-  margin: 30px auto 50px;
-  padding: 10px 30px;
+  width: 70%;
+  max-width: 70%;
+  height: 150px;
+  margin-right: 20px;
+  padding: 20px;
   border: 5px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   max-width: 800px;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-box-left{
@@ -371,21 +384,27 @@
 }
 
 .user-box-image{
-  margin-right: 30px;
+  margin-right: 10px;
 }
 
 .user-box-image>img{
-  height: 90px;
+  height: 70px;
   border-radius: 50%;
+}
+
+.fa-none{
+  display: none;
 }
 
 .user-box-name>p{
   font-size: 20px;
   font-weight: 500;
+  margin-bottom: 0;
 }
 
 .user-box-right{
   width: 50%;
+  padding: 10px;
 }
 
 .user-box-task-count{
@@ -404,11 +423,48 @@
   text-align: center;
 }
 
+.show-right{
+  width: 30%;
+}
+
+.show-post-container{
+  padding: 10px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.form-group-post{
+  width: 80%;
+}
+
+.form-group-picture{
+  font-size: 12px;
+}
+
+.form-group-post>textarea{
+  height: 70px;
+}
+
+.form-group-post>.btn{
+  width: 50%;
+  margin-top: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+  .show-right{
+    display: none;
+  }
+
+  .user-box{
+    margin-right: 20px;
+  }
+}
+
 .user-logs-box{
   padding: 30px;
   border: 5px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-
 }
 
 .user-posts{
@@ -432,7 +488,6 @@
   border-left: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-
 .pagination-box{
   margin: 80px auto 50px;
   text-align: center;
@@ -440,6 +495,40 @@
 
 .pagination{
   justify-content: center;
+}
+
+@media (max-width: 770px) {
+  .user-box-left{
+    display: block;
+    text-align: center;
+  }
+
+  .user-box-image>img{
+    height: 50px;
+  }
+
+  .user-box-name>p{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 5px;
+  }
+
+  .fa-2x{
+    display: none;
+  }
+
+  .fa-none{
+    display: block;
+  }
+
+  .user-box-task-count>p{
+    font-size: 20px;
+    margin-left: 3px;
+  }
+
+  .user-box-task-text>p{
+    font-size: 12px;
+  }
 }
 
 .pagination li{

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post = @user.posts.build
     @posts = @user.posts.page(params[:page]).per(10)
   end
 
@@ -48,20 +49,20 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:warning] = 'ログインしてください'
-      redirect_to login_url
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-  end
 
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:warning] = 'ログインしてください'
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
 end

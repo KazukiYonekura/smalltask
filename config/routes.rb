@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-  get 'posts/create'
   root 'users#index'
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
@@ -11,5 +9,6 @@ Rails.application.routes.draw do
   resources :sessions,  only: :show
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :guest_sessions, only: [:create]
+  resources :guest_sessions, only: :create
+  resources :posts, only: [:new, :create, :edit, :update, :destroy]
 end

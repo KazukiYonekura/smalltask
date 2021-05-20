@@ -8,22 +8,22 @@ class Post < ApplicationRecord
   validate :validate_picture
 
   def resize_picture
-    picture.variant(resize: '200x200').processed
+    return self.picture.variant(resize: '100x100').processed
   end
 
   private
 
-  def only_user_id
-    content.presence || text.presence || picture.attached?
-  end
+    def only_user_id
+      content.presence || text.presence || picture.attached?
+    end
 
-  def validate_picture
-    if picture.attached?
-      if !picture.content_type.in?(%('image/jpeg image/jpg image/png image/gif'))
-        errors.add(:picture, 'はjpeg, jpg, png, gif以外の投稿ができません')
-      else picture.blob.byte_size > 5.megabytes
-           errors.add(:picture, 'のサイズが5MBを超えています')
+    def validate_picture
+      if picture.attached?
+        if !picture.blob.content_type.in?(%('image/jpeg image/jpg image/png image/gif'))
+          errors.add(:picture, 'はjpeg, jpg, png, gif以外の投稿ができません')
+        elsif picture.blob.byte_size > 5.megabytes
+          errors.add(:picture, 'のサイズが5MBを超えています')
+        end
       end
     end
-  end
 end
