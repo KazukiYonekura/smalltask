@@ -17,16 +17,18 @@ class PostsController < ApplicationController
   def edit
     @post = current_user.posts.find_by(id: params[:id]) || nil
     if @post.nil?
-      flash[:warning] = "編集権限がありません"
+      flash[:warning] = '編集権限がありません'
       redirect_to root_url
     end
   end
 
   def update
-    @post = current_user.posts.find_by(id: params[:id])
-    @post.update(post_params)
-    if @post.save
-      flash[:success] = "編集が完了しました"
+    @post = current_user.posts.find_by(id: params[:id]) || nil
+    if @post.nil?
+      flash[:warning] = '編集権限がありません'
+      redirect_to root_url
+    elsif @post.update(post_params)
+      flash[:success] = '編集が完了しました'
       redirect_to current_user
     else
       render 'posts/edit'
@@ -34,8 +36,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
-    flash[:success] = "ログが削除されました"
+    flash[:success] = 'ログが削除されました'
     redirect_to current_user
   end
 
