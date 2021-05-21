@@ -10,6 +10,7 @@
             </div>
             <div class="user-box-name">
               <p><%= @user.name %>さん</p>
+              <p><%= link_to "編集画面へ", edit_post_path(@user), class: 'btn btn-success btn-edit-user btn-back' %>
             </div>
           </div>
           <div class="user-box-right">

@@ -28,4 +28,18 @@ RSpec.describe Post, type: :model do
       expect(post).to be_invalid
     end
   end
+
+  describe "picture" do
+    it "is valid if all columns are nil except picture" do
+      post.update(content: nil, text: nil, user_id: user.id)
+      expect(post).to be_invalid
+      post.picture.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'images', 'test1.jpg')), filename: 'test1.jpg', content_type: 'image/jpg')
+      expect(post).to be_valid
+    end
+
+    it "is not over than 5MB" do
+      post.picture.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'images', 'test2.png')), filename: 'test2.png', content_type: 'image/png')
+      expect(post).to be_invalid
+    end
+  end
 end
