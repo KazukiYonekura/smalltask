@@ -544,10 +544,12 @@
 }
 
 .pagination{
+  width: 100%;
+  align-items: center;
   justify-content: center;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 768px) {
   .user-box-left{
     display: block;
     text-align: center;
@@ -561,6 +563,14 @@
     font-size: 16px;
     font-weight: 400;
     margin-top: 5px;
+  }
+
+  .user-log-title{
+    text-align: center;
+  }
+
+  .col-log-memos{
+    border-left: 0px none;
   }
 
   .fa-2x{
@@ -582,8 +592,10 @@
 }
 
 .pagination li{
+  width: 15%;
+  max-width: 50px;
   padding: 8px 16px;
-  margin-right: 20px;
+  margin-right: 10px;
   background-color: #2CA64E;
   border-radius: 5px;
 }
@@ -594,4 +606,24 @@
 
 .pagination a{
   color: #fff;
+}
+
+.page.gap{
+  display: none;
+}
+
+.pagination .next{
+  display: none;
+}
+
+.pagination .last{
+  display: none;
+}
+
+.pagination .first{
+  display: none;
+}
+
+.pagination .prev{
+  display: none;
 }

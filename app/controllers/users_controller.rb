@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @post = @user.posts.build
     @posts = Post.all.includes(:user).page(params[:page]).per(10)
     @tasks = @user.posts.limit(3)
+    @completed = @user.posts.all.includes(:user).where(complete: false)
   end
 
   def new

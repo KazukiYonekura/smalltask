@@ -16,6 +16,14 @@ class Post < ApplicationRecord
     picture.variant(resize: '300x300').processed
   end
 
+  def complete_task
+    update_attribute(:complete, true)
+  end
+
+  def completed
+    scope :completed, -> { 　where(complete: false) }
+  end
+
   private
 
   def only_user_id

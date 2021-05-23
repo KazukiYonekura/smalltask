@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by(id: params[:id]) || nil
     if @post.nil?
       flash[:warning] = '編集権限がありません'
-      redirect_to root_url
+      redirect_to user_path(current_user)
     end
   end
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by(id: params[:id]) || nil
     if @post.nil?
       flash[:warning] = '編集権限がありません'
-      redirect_to root_url
+      redirect_to user_path(current_user)
     elsif @post.update(post_params)
       flash[:success] = '編集が完了しました'
       redirect_to current_user
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :text, :picture)
+    params.require(:post).permit(:content, :text, :picture, :complete)
   end
 
   def correct_user
