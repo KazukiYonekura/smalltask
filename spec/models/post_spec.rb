@@ -30,10 +30,11 @@ RSpec.describe Post, type: :model do
   end
 
   describe "picture" do
-    it "is valid if all columns are nil except picture" do
+    it "is valid if all columns are nil except content picture" do
       post.update(content: nil, text: nil, user_id: user.id)
       expect(post).to be_invalid
       post.picture.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'images', 'test1.jpg')), filename: 'test1.jpg', content_type: 'image/jpg')
+      post.update(content: "tasktest")
       expect(post).to be_valid
     end
 

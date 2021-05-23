@@ -1,27 +1,25 @@
 <% if @user.posts.any? %>
   <div class="user-logs-box">
+    <h3 class="user-log-title">ログ</h3>
     <ol class="user-posts">
     <% @posts.each do |post| %>
+    <% @post_user = User.find(post.user_id) %>
       <li id ="post-<%= post.id %>">
-        <span class="row log-list">
+        <div class="row log-list">
           <span class="col-2 log-timestamp d-none d-md-inline-block log-timestamp-block">
             <span class="log-timestamp"><%= time_ago_in_words(post.created_at) %>前</span>
           </span>
           <span class="col-md-10 col-log-memos">
-            <div class="log-time-and-edit">
-              <div class="row">
-                <span class="log-time col-3"></span>
-                <span class="col-7 log-timestamp log-timestamp-inline"><%= time_ago_in_words(post.created_at) %>前</span>
-              </div>
-            </div>
-            <span class="log-memo"><%= post.text %></span>
+            <span><%= link_to @post_user.name ,user_path(@post_user.id) %>さんがタスク名</span>
+            <span class="log-text"><< <%= link_to post.text, post_path(post.id) %> >></span>
+            <span>を設定しました</span>
             <% if post.picture.attached? %>
               <div class="log-picture">
                 <%= image_tag post.resize_picture %>
               </div>
             <% end %>
           </span>
-        </span>
+        </div>
       </li>
     <% end %>
     </ol>

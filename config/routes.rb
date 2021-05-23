@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :guest_sessions, only: :create
-  resources :posts, only: [:new, :create, :edit, :update, :destroy]
+  resources :posts, except: :index
 end

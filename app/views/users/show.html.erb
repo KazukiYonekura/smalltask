@@ -4,24 +4,37 @@
     <div class="col">
       <div class="show-up-container">
         <div class="user-box">
-          <div class="user-box-left">
-            <div class="user-box-image">
-              <%= image_tag("default_user.png") %>
+          <div class="user-box-up">
+            <div class="user-box-left">
+              <div class="user-box-image">
+                <%= image_tag("default_user.png") %>
+              </div>
+              <div class="user-box-name">
+                <p><%= @user.name %>さん</p>
+              </div>
             </div>
-            <div class="user-box-name">
-              <p><%= @user.name %>さん</p>
-              <p><%= link_to "編集画面へ", edit_post_path(@user), class: 'btn btn-success btn-edit-user btn-back' %>
+            <div class="user-box-right">
+              <div class="user-box-task-count">
+                <i class="fas fa-tasks fa-2x"></i>
+                <i class="fas fa-tasks fa-none"></i>
+                <p><%= @user.posts.count %></p>
+              </div>
+              <div class="user-box-task-text">
+                <p>現在のタスク数</p>
+              </div>
             </div>
           </div>
-          <div class="user-box-right">
-            <div class="user-box-task-count">
-              <i class="fas fa-tasks fa-2x"></i>
-              <i class="fas fa-tasks fa-none"></i>
-              <p>500</p>
-            </div>
-            <div class="user-box-task-text">
-              <p>達成タスク数</p>
-            </div>
+          <div class="task-container">
+            <h5>現在のタスク(新規3件)</h5>
+            <% @tasks.each do |task| %>
+              <div class="task-box">
+                <% if task.content.present? %>
+                  <%= link_to task.content, post_path(task.id) %>
+                <% else %>
+                  <%= link_to "タスク名なし", post_path(task.id) %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="col show-right">

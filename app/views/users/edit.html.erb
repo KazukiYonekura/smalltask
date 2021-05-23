@@ -1,7 +1,7 @@
-<% provide(:title, 'プロフィール編集') %>
+<% provide(:title, 'プロフィール') %>
 <div class="container edit-container">
   <div class="edit-title">
-    <h1 class="form-title form-title-edit">プロフィール編集</h1>
+    <h1 class="form-title form-title-edit">プロフィール</h1>
   </div>
   <%= form_with(model: @user, url: user_path(@user), local: true) do |form| %>
   <div class="card-deck">
