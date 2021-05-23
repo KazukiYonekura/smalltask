@@ -13,4 +13,7 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
-
+    - 'spec/**/*'
+    - 'app/helpers/sessions_helper.rb'
+    - 'app/controllers/*'
+    - 'app/models/*'

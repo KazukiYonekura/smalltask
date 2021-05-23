@@ -51,6 +51,6 @@ module SessionsHelper
   end
 
   def complete?
-    self.where(complete: true)
+    where(complete: true)
   end
 end

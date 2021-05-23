@@ -21,7 +21,7 @@ class Post < ApplicationRecord
   end
 
   def completed
-    scope :completed, -> {　where(complete: false) }
+    scope :completed, -> { 　where(complete: false) }
   end
 
   private
