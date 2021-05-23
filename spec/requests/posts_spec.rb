@@ -80,7 +80,7 @@ RSpec.describe "Posts", type: :request do
       log_in_as(other_user)
       get edit_post_path(user.posts.last.id)
       follow_redirect!
-      expect(request.fullpath).to eq root_path
+      expect(request.fullpath).to eq user_path(other_user)
     end
 
     it "succeeds to edit a post" do

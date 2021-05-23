@@ -11,8 +11,12 @@
           </span>
           <span class="col-md-10 col-log-memos">
             <span><%= link_to @post_user.name ,user_path(@post_user.id) %>さんがタスク名</span>
-            <span class="log-text"><< <%= link_to post.text, post_path(post.id) %> >></span>
-            <span>を設定しました</span>
+            <span class="log-text"><< <%= link_to post.content, post_path(post.id) %> >></span>
+            <% if post.complete == false %>
+              <span>を作成しました</span>
+            <% else %>
+              <span>を達成しました</span>
+            <% end %>
             <% if post.picture.attached? %>
               <div class="log-picture">
                 <%= image_tag post.resize_picture %>

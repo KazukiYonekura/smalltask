@@ -49,4 +49,8 @@ module SessionsHelper
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)
   end
+
+  def complete?
+    self.where(complete: true)
+  end
 end
