@@ -362,17 +362,20 @@
 }
 
 .user-box{
-  display: flex;
   width: 70%;
   max-width: 70%;
-  height: 150px;
   margin-right: 20px;
   padding: 20px;
   border: 5px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   max-width: 800px;
+}
+
+.user-box-up{
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 
 .user-box-left{
@@ -423,6 +426,31 @@
   text-align: center;
 }
 
+.task-container h5{
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.task-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.task-box p{
+  margin-bottom: 0;
+}
+
+.task-content{
+  width: 100%;
+  margin-right: 10px;
+  padding: 10px;
+}
+
 .show-right{
   width: 30%;
 }
@@ -431,6 +459,11 @@
   padding: 10px;
   border: 5px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+}
+
+.show-post-container h1{
+  font-size: 25px;
+  margin-bottom: 20px;
 }
 
 .form-group-post{
@@ -467,21 +500,38 @@
   border-radius: 10px;
 }
 
+.user-log-title{
+  padding-bottom: 30px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
 .user-posts{
   padding: 0;
 }
 
 .user-posts li{
   margin: 15px;
+  min-height: 30px;
 }
 
 .log-list{
   text-align: center;
   align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .log-timestamp{
   font-size: 12px;
+}
+
+.row.log-time-row{
+  margin: 0 auto;
+}
+
+.log-picture{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .col-log-memos{

@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post = @user.posts.build
-    @posts = @user.posts.page(params[:page]).per(10)
+    @posts = Post.all.includes(:user).page(params[:page]).per(10)
+    @tasks = @user.posts.limit(3)
   end
 
   def new

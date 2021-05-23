@@ -1,5 +1,5 @@
 <div class="container show-post-container">
-  <h1>Form</h1>
+  <h1>タスクを設定する</h1>
   <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
     <%= render 'shared/error_messages', object: form.object %>
     <div class="form-group form-group-post">
