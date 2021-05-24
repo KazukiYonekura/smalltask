@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_one_attached :image
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
@@ -19,6 +20,8 @@ class User < ApplicationRecord
   validates :password,
             presence: true,
             length: { minimum: 6 }
+
+  validate :validate_image
 
   class << self
     def new_token
@@ -67,6 +70,10 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def resize_image
+    image.variant(resize: '100x100').processed
+  end
+
   private
 
   def downcase_email
@@ -76,5 +83,15 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
+  end
+
+  def validate_image
+    if image.attached?
+      if !image.blob.content_type.in?(%('image/jpeg image/jpg image/png image/gif'))
+        errors.add(:picture, 'はjpeg, jpg, png, gif以外の投稿ができません')
+      elsif image.blob.byte_size > 5.megabytes
+        errors.add(:picture, 'のサイズが5MBを超えています')
+      end
+    end
   end
 end

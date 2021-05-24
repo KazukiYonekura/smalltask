@@ -1,0 +1,38 @@
+<% provide(:title, 'プロフィール') %>
+<div class="new-container">
+  <div class="container container-padding">
+    <div class="sessionBox">
+      <h1 class="form-title-edit signup-title">プロフィール</h1>
+      <div class="form-group-edit">
+        <label class="show-task-label">ユーザー</label>
+        <div class="form-group-image">
+          <% if @user.image.attached? %>
+            <%= image_tag @user.image %>
+          <% else %>
+            <%= image_tag("default_user.png") %>
+          <% end %>
+        </div>
+        <p class="profile-task-user"><%= @user.name %></p>
+      </div>
+      <div class="form-group edit-picture">
+        <% if @user.image.attached? %>
+          <div class="log-picture show-task-picture">
+            <%= image_tag @user.resize_image %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row button-margin-bottom">
+        <div class="col button-margin-left">
+          <div class="form-group edit-button">
+            <%= link_to "戻る", current_user, class: 'btn btn-lg btn-success btn-edit-user' %>
+          </div>
+        </div>
+        <div class="col button-margin-right">
+          <div class="form-group edit-button">
+            <%= link_to "編集する", edit_user_path(@user.id), class: 'btn btn-info btn-lg btn-edit-user' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,11 @@
           <div class="user-box-up">
             <div class="user-box-left">
               <div class="user-box-image">
-                <%= image_tag("default_user.png") %>
+                <% if @user.image.attached? %>
+                  <%= image_tag @user.image %>
+                <% else %>
+                  <%= image_tag("default_user.png") %>
+                <% end %>
               </div>
               <div class="user-box-name">
                 <p><%= @user.name %>さん</p>

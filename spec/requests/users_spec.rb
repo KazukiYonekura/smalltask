@@ -7,5 +7,12 @@ RSpec.describe "Users", type: :request do
       follow_redirect!
       expect(request.fullpath).to eq login_path
     end
+
+    it "valid user image" do
+      log_in_as(user)
+      expect(is_logged_in?).to be_truthy
+      get user_path(user.id)
+      expect(request.fullpath).to eq user_path(user.id)
+    end
   end
 end
