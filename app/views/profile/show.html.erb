@@ -14,13 +14,6 @@
         </div>
         <p class="profile-task-user"><%= @user.name %></p>
       </div>
-      <div class="form-group edit-picture">
-        <% if @user.image.attached? %>
-          <div class="log-picture show-task-picture">
-            <%= image_tag @user.resize_image %>
-          </div>
-        <% end %>
-      </div>
       <div class="row button-margin-bottom">
         <div class="col button-margin-left">
           <div class="form-group edit-button">
