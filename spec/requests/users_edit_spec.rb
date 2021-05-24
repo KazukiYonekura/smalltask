@@ -36,7 +36,7 @@ RSpec.describe "UsersEdits", type: :request do
         log_in_as(other_user)
         get edit_user_path(user.id)
         follow_redirect!
-        expect(request.fullpath).to eq root_path
+        expect(request.fullpath).to eq user_path(other_user.id)
       end
 
       it "is invalid edit informaiton" do
@@ -54,7 +54,7 @@ RSpec.describe "UsersEdits", type: :request do
         get edit_user_path(user.id)
         patch_valid_information
         follow_redirect!
-        expect(request.fullpath).to eq root_path
+        expect(request.fullpath).to eq user_path(other_user.id)
       end
     end
 
