@@ -1,7 +1,7 @@
 <% provide(:title, 'プロフィール') %>
 <div class="container edit-container">
   <div class="edit-title">
-    <h1 class="form-title form-title-edit">プロフィール</h1>
+    <h1 class="form-title form-title-edit">プロフィール編集</h1>
   </div>
   <%= form_with(model: @user, url: user_path(@user), local: true) do |form| %>
   <div class="card-deck">
@@ -10,6 +10,17 @@
         <h2 class="card-header form-title">アカウント情報変更</h2>
         <div class="card-body">
           <%= render 'shared/error_messages', object: form.object %>
+          <div class="form-group">
+            <p class="form-group-label">画像</p>
+            <div class="form-group-image">
+              <% if @user.image.attached? %>
+                <%= image_tag @user.image %>
+              <% else %>
+                <%= image_tag("default_user.png") %>
+              <% end %>
+            </div>
+            <%= form.file_field :image, class: 'form-image-label' %>
+          </div>
           <div class="form-group">
             <p class="form-group-label">ユーザー名</p>
             <%= form.text_field :name, class: 'form-control', placeholder: "名前" %>

@@ -46,13 +46,10 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def set_user
-  end
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
 
   def logged_in_user

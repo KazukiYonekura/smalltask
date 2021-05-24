@@ -326,6 +326,20 @@
   margin-bottom: 5px;
 }
 
+.form-image-label{
+  font-size: 12px;
+  padding: 10px;
+}
+
+.form-group-image{
+  padding: 40px 40px 30px;
+}
+
+.form-group-image>img{
+  height: 100px;
+  border-radius: 50%;
+}
+
 .card-body>.form-group:last-child{
   margin-top: 40px;
 }
@@ -485,12 +499,17 @@
 }
 
 @media (max-width: 1000px) {
+  .show-up-container{
+    display: block;
+  }
+
   .show-right{
-    display: none;
+    width: 70%;
+    margin: 0 auto;
   }
 
   .user-box{
-    margin-right: 20px;
+    margin: 0 auto 30px;
   }
 }
 
@@ -588,6 +607,26 @@
 
   .user-box-task-text>p{
     font-size: 12px;
+  }
+
+  .task-container h5{
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .show-right h1{
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .form-group-picture input{
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .form-group-picture input{
+    display: none;
   }
 }
 

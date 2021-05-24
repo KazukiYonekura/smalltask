@@ -20,10 +20,6 @@ class Post < ApplicationRecord
     update_attribute(:complete, true)
   end
 
-  def completed
-    scope :completed, -> { 　where(complete: false) }
-  end
-
   private
 
   def only_user_id
