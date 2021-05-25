@@ -31,6 +31,14 @@
   margin-bottom: 80px !important;
 }
 
+.show-task-picture img{
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+
+}
+
 /*=== EDIT ===*/
 
 .form-group-edit{
@@ -70,4 +78,55 @@
 
 .form-group.edit-button>.btn{
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .edit-picture>input{
+    font-size: 10px !important;
+  }
+  .button-margin-right{
+    margin-right: 5px;
+  }
+
+  .button-margin-left{
+    margin-left: 5px;
+  }
+  .form-group.edit-button>.btn{
+    font-size: 12px;
+  }
+}
+
+/*=== SHOW(PROFILE) ===*/
+
+.form-group-image{
+  padding: 40px 40px 30px;
+}
+
+.form-group-image>img{
+  height: 100px;
+  border-radius: 50%;
+}
+
+.form-image-label{
+  font-size: 12px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .profile-button>a{
+    font-size: 12px !important;
+  }
+
+  .form-group-image{
+    padding: 20px 0 15px;
+  }
+
+  .form-group-image>img{
+    height: 80px;
+  }
+
+  .form-image-label{
+    font-size: 10px !important;
+    padding: 0;
+  }
 }
