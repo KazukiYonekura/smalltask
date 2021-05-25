@@ -3,7 +3,7 @@
     <h3 class="user-log-title">ログ</h3>
     <ol class="user-posts">
     <% @posts.each do |post| %>
-    <% @post_user = User.find(post.user_id) %>
+    <% @post_user = post.user %>
       <li id ="post-<%= post.id %>">
         <div class="row log-list">
           <span class="col-2 log-timestamp d-none d-md-inline-block log-timestamp-block">
