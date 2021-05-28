@@ -34,7 +34,7 @@ gem 'mini_magick'
 
 gem 'image_processing'
 
-gem 'mini_racer'
+gem 'mini_racer', '~> 0.4.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -61,6 +61,8 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-vars'
   gem 'capistrano3-puma'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do

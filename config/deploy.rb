@@ -17,14 +17,14 @@ set :pty, true
 set :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/small_task'
+set :deploy_to, '/var/www/rails/smalltask'
 
 append :linked_files, "config/master.key"
-# シンボリックリンクのディレクトリを生成
+
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads", "public/storage"
-# 環境変数の設定
+
 set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }
-# 保存しておく過去分のアプリ数
+
 set :keep_releases, 3
 
 set :rbenv_ruby, '2.7.3'

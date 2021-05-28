@@ -35,12 +35,14 @@
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/user_name/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
-#
+
+server '18.178.51.224', user: "naoto", roles: %w(app db web)
+
+set :ssh_options, {
+  keys: %w(~/.ssh/test-db00),
+  forward_agent: true,
+}
+
 # The server-based syntax can be used to override options:
 # ------------------------------------
 # server "example.com",
