@@ -9,11 +9,6 @@ require 'capistrano/scm/git'
 require 'capistrano/puma'
 require 'capistrano/console'
 
-# require 'capistrano3/unicorn'
-# require 'capistrano/rvm'
-# require 'capistrano/chruby'
-# require 'capistrano/passenger'
-
 # Include default deployment tasks
 
 # Load the SCM plugin appropriate to your project:
@@ -37,14 +32,6 @@ install_plugin Capistrano::Puma
 #   https://github.com/capistrano/bundler
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
-#
-# require "capistrano/rvm"
-# require "capistrano/rbenv"
-# require "capistrano/chruby"
-# require "capistrano/bundler"
-# require "capistrano/rails/assets"
-# require "capistrano/rails/migrations"
-# require "capistrano/passenger"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rb").each { |r| import r }
