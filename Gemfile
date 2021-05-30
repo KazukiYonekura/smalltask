@@ -34,7 +34,7 @@ gem 'mini_magick'
 
 gem 'image_processing'
 
-gem 'mini_racer', '~> 0.3.1'
+gem 'mini_racer', '~> 0.4.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
