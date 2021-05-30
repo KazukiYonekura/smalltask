@@ -36,7 +36,7 @@
 # Global options
 # --------------
 
-server '18.178.51.224', user: "naoto", roles: %w(app db web)
+server '18.178.51.224', user: 'naoto', roles: %w(app db web)
 
 set :ssh_options, {
   keys: %w(~/.ssh/test-db00),
