@@ -51,7 +51,7 @@ test:
 #
 production:
   <<: *default
-  database:
+  database: small_task
   username: <%= Rails.application.credentials.db[:username] %>
   password: <%= Rails.application.credentials.db[:password] %>
-  host: smalltask-mysql.ccpyeezelvuo.ap-northeast-1.rds.amazonaws.com
+  host: smalltask-mysql00.ccpyeezelvuo.ap-northeast-1.rds.amazonaws.com
