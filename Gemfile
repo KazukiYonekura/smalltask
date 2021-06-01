@@ -12,7 +12,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -35,6 +35,22 @@ gem 'mini_magick'
 gem 'image_processing'
 
 gem 'mini_racer', '~> 0.3.1'
+
+gem 'capistrano'
+
+gem 'capistrano-bundler'
+
+gem 'capistrano-rails'
+
+gem 'capistrano-rbenv'
+
+gem 'capistrano-rbenv-vars'
+
+gem 'capistrano3-puma'
+
+gem 'ed25519'
+
+gem 'bcrypt_pbkdf'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -55,14 +71,6 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'database_cleaner'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rbenv-vars'
-  gem 'capistrano3-puma'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
 end
 
 group :development do
