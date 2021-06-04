@@ -15,18 +15,15 @@ worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-# port ENV.fetch("PORT") { 3000 }
-app_dir = File.expand_path("../..", __FILE__)
-bind "unix://#{app_dir}/tmp/sockets/puma.sock"
+port ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Specifies the `pidfile` that Puma will use.
-pidfile "#{app_dir}/tmp/pids/puma.pid"
-state_path "#{app_dir}/tmp/pids/puma.state"
-stdout_redirect "#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true
+pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
+
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
