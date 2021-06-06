@@ -1,5 +1,5 @@
 {
-  "name": "small-task",
+  "name": "my-webpack-project",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.9.2",
@@ -9,12 +9,21 @@
     "@rails/webpacker": "5.4.0",
     "bootstrap": "^5.0.1",
     "jquery": "^3.6.0",
-    "turbolinks": "^5.2.0",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0"
+    "turbolinks": "^5.2.0"
   },
-  "version": "0.1.0",
+  "version": "1.0.0",
   "devDependencies": {
+    "@webpack-cli/generators": "^2.1.0",
+    "@webpack-cli/init": "^1.1.3",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "description": "My webpack project",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   }
 }
