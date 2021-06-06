@@ -43,6 +43,35 @@ namespace :deploy do
     end
   end
 
+  task :compile_assets_locally do
+    run_locally do
+      with rails_env: fetch(:stage) do
+        execute 'bundle exec rails assets:precompile'
+      end
+    end
+  end
+
+  task :zip_assets_locally do
+    run_locally do
+      execute 'tar -zcvf ./tmp/assets.tar.gz ./public/assets 1> /dev/null'
+      execute 'tar -zcvf ./tmp/packs.tar.gz ./public/packs 1> /dev/null'
+    end
+  end
+
+  task :send_assets_zip do
+    on roles(:web) do |_host|
+      upload!('./tmp/assets.tar.gz', "#{release_path}/public/")
+      upload!('./tmp/packs.tar.gz', "#{release_path}/public/")
+    end
+  end
+
+  task :unzip_assets do
+    on roles(:web) do |_host|
+      execute "cd #{release_path}; tar -zxvf #{release_path}/public/assets.tar.gz 1> /dev/null"
+      execute "cd #{release_path}; tar -zxvf #{release_path}/public/packs.tar.gz 1> /dev/null"
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -50,6 +79,11 @@ namespace :deploy do
     end
   end
 end
+
+before 'deploy:updated', 'deploy:compile_assets_locally'
+before 'deploy:updated', 'deploy:zip_assets_locally'
+before 'deploy:updated', 'deploy:send_assets_zip'
+before 'deploy:updated', 'deploy:unzip_assets'
 
 # Default value for :format is :airbrussh.
 
