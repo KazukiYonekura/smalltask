@@ -54,5 +54,5 @@ production:
   database: small_task
   username: <%= Rails.application.credentials.db[:username] %>
   password: <%= Rails.application.credentials.db[:password] %>
-  socket: /var/lib/mysql/mysql.sock
-  host: smalltask-mysql00.ccpyeezelvuo.ap-northeast-1.rds.amazonaws.com
+  socket:   /var/lib/mysql/mysql.sock
+  host:     <%= Rails.application.credentials.db[:host] %>
