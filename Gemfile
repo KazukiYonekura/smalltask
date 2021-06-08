@@ -59,6 +59,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-vars'
   gem 'capistrano3-puma'
+  gem 'sshkit-sudo'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
 end
