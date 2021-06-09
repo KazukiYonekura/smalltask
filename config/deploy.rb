@@ -21,12 +21,13 @@ set :deploy_to, '/var/www/rails/smalltask'
 
 append :linked_files, "config/master.key"
 
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads", "public/storage"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }
 
 set :keep_releases, 3
 
+set :rbenv_type, :user
 set :rbenv_ruby, '2.7.3'
 
 set :log_level, :debug
@@ -40,13 +41,6 @@ namespace :deploy do
           execute :bundle, :exec, :rails, 'db:create'
         end
       end
-    end
-  end
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
     end
   end
 end
