@@ -55,6 +55,12 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'database_cleaner'
+  gem "capistrano"
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
@@ -65,12 +71,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem "capistrano", "~> 3.14", require: false
-  gem "capistrano-rails", "~> 1.6", require: false
-  gem 'capistrano-rbenv', '~> 2.2'
-  gem 'capistrano3-puma'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
 end
 
 group :test do
@@ -82,6 +82,7 @@ group :test do
 end
 
 group :production, :staging do
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
