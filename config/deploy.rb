@@ -43,6 +43,13 @@ namespace :deploy do
       end
     end
   end
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'puma:restart'
+    end
+  end
 end
 
 # Default value for :format is :airbrussh.
