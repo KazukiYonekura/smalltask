@@ -17,7 +17,9 @@
       <% flash.each do |message_type, message| %>
         <%= tag.div message, class: "alert alert-#{message_type}" %>
       <% end %>
-      <%= yield %>
+      <div class="main-content-space">
+        <%= yield %>
+      </div>
       <%= render 'shared/footer' %>
     </div>
   </body>
