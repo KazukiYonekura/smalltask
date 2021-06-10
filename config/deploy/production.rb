@@ -43,7 +43,7 @@ server '18.178.51.224', user: 'naoto', roles: %w(app db web)
 set :ssh_options, {
   keys: %w(~/.ssh/test-db00),
   forward_agent: true,
-  auth_methods: %w(publickey)
+  auth_methods: %w(publickey),
 }
 
 # The server-based syntax can be used to override options:
