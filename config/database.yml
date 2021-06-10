@@ -12,8 +12,9 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  timeout: 5000
   reconnect: false
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   username: <%= Rails.application.credentials.db[:username] %>
   password:
   socket: /tmp/mysql.sock
