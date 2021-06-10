@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    env_file:
+      - ./environments/db.env
+    volumes:
+      - .:/smalltask_docker
+    depends_on:
+      - db
+    tty: true
+    command: bundle exec puma -C config/puma.rb
+
+  db:
+    image: mysql
+    env_file:
+      - ./environments/db.env
+    volumes:
+      - db-data:/var/lib/mysql
+
+  nginx:
+    build: containers/nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+
+volumes:
+  db-data:
