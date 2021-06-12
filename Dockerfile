@@ -1,13 +1,22 @@
 FROM ruby:2.7.3
-RUN apt update -qq && \
-    apt install -y build-essential nodejs
-RUN mkdir /lantern_docker
-ENV APP_ROOT /smalltask_docker
-WORKDIR $APP_ROOT
-ADD Gemfile $APP_ROOT/Gemfile
-ADD Gemfile.lock $APP_ROOT/Gemfile.lock
-RUN gem install bundler
+ENV DOCKERIZE_VERSION v0.6.1
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends\
+    nodejs  \
+    build-essential  \
+    wget \
+    && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /small_task
+
+COPY Gemfile /small_task/Gemfile
+COPY Gemfile.lock /small_task/Gemfile.lock
+
 RUN bundle install
-ADD . $APP_ROOT
+
+COPY . /small_task
 RUN mkdir -p tmp/sockets
 EXPOSE 3000
