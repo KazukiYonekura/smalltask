@@ -12,12 +12,11 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  timeout: 5000
-  reconnect: false
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= Rails.application.credentials.db[:username] %>
   password:
   socket: /tmp/mysql.sock
+  host: <%= ENV.fetch('DB_HOST', '') %>
 
 development:
   <<: *default
@@ -52,7 +51,7 @@ test:
 #
 production:
   <<: *default
-  database: small_task
+  database: small_task_production
   username: <%= Rails.application.credentials.db[:username] %>
   password: <%= Rails.application.credentials.db[:password] %>
   socket:   /var/lib/mysql/mysql.sock

@@ -1,19 +1,28 @@
 version: '3'
-
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     env_file:
       - ./environments/db.env
-    volumes:
-      - .:/smalltask_docker
+    environment:
+      DB_HOST: db
+    command: dockerize -wait tcp://db:3306 -timeout 20s bundle exec unicorn -p 3000 -c /small_task/config/unicorn.conf.rb
+    tty: true
+    stdin_open: true
     depends_on:
       - db
-    tty: true
-    command: bundle exec puma -C config/puma.rb
-
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/small_task:cached
+      - tmp-data:/small_task/tmp/sockets
+      - public-data:/small_task/public
   db:
     image: mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     env_file:
       - ./environments/db.env
     volumes:
@@ -23,8 +32,14 @@ services:
     build: containers/nginx
     ports:
       - "80:80"
+    restart: always
+    volumes:
+      - tmp-data:/small_task/tmp/sockets
+      - public-data:/small_task/public
     depends_on:
       - app
 
 volumes:
+  public-data:
+  tmp-data:
   db-data:
