@@ -11,12 +11,20 @@ services:
     stdin_open: true
     depends_on:
       - db
+    environment:
+      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
     ports:
       - "3000:3000"
     volumes:
       - .:/small_task:cached
       - tmp-data:/small_task/tmp/sockets
       - public-data:/small_task/public
+
+  selenium_chrome:
+      image: selenium/standalone-chrome-debug
+      logging:
+        driver: none
+
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
