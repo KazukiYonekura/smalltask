@@ -12,6 +12,7 @@ jobs:
           MYSQL_DATABASE: small_task_test
           MYSQL_ROOT_HOST: '%'
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
+          MYSQL_PASSWORD: password
           MYSQL_PORT: 3306
     working_directory: ~/small_task
     steps:
@@ -42,6 +43,7 @@ jobs:
           MYSQL_DATABASE: small_task_test
           MYSQL_ROOT_HOST: '%'
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
+          MYSQL_PASSWORD: password
           MYSQL_PORT: 3306
     working_directory: ~/small_task
     steps:
