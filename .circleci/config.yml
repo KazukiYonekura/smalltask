@@ -9,8 +9,11 @@ jobs:
       - image: circleci/mysql
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
+          MYSQL_DATABASE: small_task_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_HOST: '%'
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
-          MYSQL_DB: circle_test
+          MYSQL_PORT: 3306
     working_directory: ~/small_task
     steps:
       - checkout
@@ -37,8 +40,11 @@ jobs:
       - image: circleci/mysql
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
+          MYSQL_DATABASE: small_task_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_HOST: '%'
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
-          MYSQL_DB: circle_test
+          MYSQL_PORT: 3306
     working_directory: ~/small_task
     steps:
       - checkout
