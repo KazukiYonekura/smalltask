@@ -34,8 +34,6 @@ gem 'image_processing'
 
 gem 'mini_racer'
 
-gem 'faker'
-
 gem 'unicorn', '~> 5.4.1'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
