@@ -7,10 +7,10 @@ jobs:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
       - image: circleci/mysql
+        command: [--default-authentication-plugin=mysql_native_password]
         environment:
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
-          DB_HOST: 127.0.0.1
-          MYSQL_PASSWORD: 'password'
+          MYSQL_DB: circle_test
     working_directory: ~/small_task
     steps:
       - checkout
@@ -35,10 +35,10 @@ jobs:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
       - image: circleci/mysql
+        command: [--default-authentication-plugin=mysql_native_password]
         environment:
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
-          DB_HOST: 127.0.0.1
-          MYSQL_PASSWORD: 'password'
+          MYSQL_DB: circle_test
     working_directory: ~/small_task
     steps:
       - checkout
