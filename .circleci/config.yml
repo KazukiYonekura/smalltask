@@ -9,7 +9,8 @@ jobs:
       - image: circleci/mysql
         environment:
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
-          MYSQL_ROOT_HOST: 127.0.0.1
+          DB_HOST: 127.0.0.1
+          MYSQL_PASSWORD: 'password'
     working_directory: ~/small_task
     steps:
       - checkout
@@ -36,7 +37,8 @@ jobs:
       - image: circleci/mysql
         environment:
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
-          MYSQL_ROOT_HOST: 127.0.0.1
+          DB_HOST: 127.0.0.1
+          MYSQL_PASSWORD: 'password'
     working_directory: ~/small_task
     steps:
       - checkout
