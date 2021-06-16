@@ -9,7 +9,7 @@ jobs:
       - image: circleci/mysql
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
-          MYSQL_DATABASE: small_task_test
+          MYSQL_DATABASE: ci_test
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_HOST: '%'
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
@@ -40,7 +40,7 @@ jobs:
       - image: circleci/mysql
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
-          MYSQL_DATABASE: small_task_test
+          MYSQL_DATABASE: ci_test
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_HOST: '%'
           MYSQL_USER: <%= Rails.application.credentials.db[:username] %>
@@ -58,6 +58,7 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: mv config/database.ci.yml config/database.yml
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
