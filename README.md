@@ -5,13 +5,14 @@
 # 使用技術
 * Ruby 2.7.3
 * Ruby on Rails 6.1.3.2
-* MySQL
+* MySQL8.0.25
 * Nginx
 * Unicorn
 * AWS
   * VPC
   * EC2
   * RDS
+  * Route53
 * Docker/Docker-compose
 * CircleCi
 * Capistrano3
@@ -19,7 +20,7 @@
 * Rubocop
 
 # AWS構成図
-![AWS](https://user-images.githubusercontent.com/77623090/122341415-673fde80-cf7e-11eb-88bf-4c2d92dcd45f.png)
+![AWS](https://user-images.githubusercontent.com/77623090/122650516-6ec5da00-d16e-11eb-9462-06c4ea69316b.png)
 
 ## CircleCi
   * Githubへのpush時に、RspecとRubocopが自動で実行されます。
