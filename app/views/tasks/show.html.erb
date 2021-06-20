@@ -4,7 +4,7 @@
     <div class="sessionBox">
       <h1 class="form-title-edit signup-title">タスク一覧</h1>
       <% if @user.posts.any? %>
-          <ol class="user-posts">
+        <ol class="user-posts">
           <% @posts.each do |post| %>
             <li id ="post-<%= post.id %>">
               <div class="row log-list">
@@ -24,7 +24,7 @@
               </div>
             </li>
           <% end %>
-          </ol>
+        </ol>
         <div class="pagination-box">
           <%= paginate @posts %>
         </div>
