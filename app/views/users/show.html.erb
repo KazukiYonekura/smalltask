@@ -14,7 +14,7 @@
                 <% end %>
               </div>
               <div class="user-box-name">
-                <p><%= @user.name %>さん</p>
+                <p><%= link_to @user.name ,profile_path(@user.id) %>さん</p>
               </div>
             </div>
             <div class="user-box-right">
@@ -40,6 +40,7 @@
               </div>
             <% end %>
           </div>
+          <p class="task-link"><%= link_to "タスク一覧へ", task_path(@user.id) %></p>
         </div>
         <div class="col show-right">
           <%= render 'layouts/post_form' %>
