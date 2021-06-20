@@ -53,6 +53,14 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content, :text, :picture, :complete)
   end
 
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:warning] = 'ログインしてください'
+      redirect_to login_url
+    end
+  end
+
   def correct_user
     @post = current_user.posts.find_by(id: params[:id])
     redirect_to root_url if @post.nil?

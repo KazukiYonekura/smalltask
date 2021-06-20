@@ -1,0 +1,36 @@
+<% provide(:title, "タスク一覧") %>
+<div class="new-container">
+  <div class="container container-padding">
+    <div class="sessionBox">
+      <h1 class="form-title-edit signup-title">タスク一覧</h1>
+      <% if @user.posts.any? %>
+          <ol class="user-posts">
+          <% @posts.each do |post| %>
+            <li id ="post-<%= post.id %>">
+              <div class="row log-list">
+                <span class="col-2 log-timestamp d-none d-md-inline-block log-timestamp-block">
+                  <span class="log-timestamp"><%= time_ago_in_words(post.created_at) %>前</span>
+                </span>
+                <span class="col-md-10 col-log-memos">
+                  <% if post.content.present? %>
+                    <%= link_to post.content, post_path(post.id) %>
+                  <% else %>
+                    <%= link_to "タスク名なし", post_path(post.id) %>
+                  <% end %>
+                  <% if post.complete == true %>
+                    <span>(達成済)</span>
+                  <% end %>
+                </span>
+              </div>
+            </li>
+          <% end %>
+          </ol>
+        <div class="pagination-box">
+          <%= paginate @posts %>
+        </div>
+      <% else %>
+        <span>まだ投稿がありません</span>
+      <% end %>
+    </div>
+  </div>
+</div>

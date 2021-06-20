@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :guest_sessions,         only: :create
   resources :posts,                  except: :index
   resources :profile,                only: :show
+  resources :tasks,                  only: :show
 end
