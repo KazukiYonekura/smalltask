@@ -20,7 +20,7 @@
             <%= link_to "戻る", current_user, class: 'btn btn-lg btn-success btn-edit-user' %>
           </div>
         </div>
-        <% if @user == @current %>
+        <% if current_user?(@user) %>
           <div class="col button-margin-right">
             <div class="form-group edit-button profile-button">
               <%= link_to "編集する", edit_user_path(@user.id), class: 'btn btn-info btn-lg btn-edit-user' %>
