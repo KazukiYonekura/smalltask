@@ -25,17 +25,22 @@ set :rbenv_ruby, '2.7.3'
 
 set :log_level, :debug
 
+set :unicorn_pid, { "#{shared_path}/tmp/pids/unicorn.pid" }
+
+set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.conf.rb") }
+
 namespace :deploy do
-  desc 'Restart application'
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-
-  after :publishing, :restart
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
+
     end
+  end
+end
+
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
   end
 end
 
