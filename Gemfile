@@ -53,10 +53,11 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'database_cleaner'
-  gem "capistrano"
+  gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
 end

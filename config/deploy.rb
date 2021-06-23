@@ -5,12 +5,6 @@ set :application, 'smalltask'
 
 set :repo_url, 'git@github.com:KazukiYonekura/smalltask.git'
 
-set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
-set :puma_state, "#{shared_path}/tmp/pids/puma.state"
-set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
-set :puma_access_log, "#{shared_path}/log/puma.error.log"
-set :puma_error_log, "#{shared_path}/log/puma.access.log"
-
 set :pty, true
 
 # Default branch is :master
@@ -23,32 +17,30 @@ append :linked_files, "config/master.key"
 
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
-set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }
-
 set :keep_releases, 3
 
 set :rbenv_type, :user
+
 set :rbenv_ruby, '2.7.3'
 
 set :log_level, :debug
 
+set :unicorn_pid, { "#{shared_path}/tmp/pids/unicorn.pid" }
+
+set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.conf.rb") }
+
 namespace :deploy do
-  desc 'Create database'
-  task :db_create do
-    on roles(:db) do |host|
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rails, 'db:create'
-        end
-      end
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+
     end
   end
+end
 
-  desc 'Restart application'
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
+    invoke 'unicorn:restart'
   end
 end
 
