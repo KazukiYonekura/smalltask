@@ -25,10 +25,6 @@ set :rbenv_ruby, '2.7.3'
 
 set :log_level, :debug
 
-set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
-
-set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.conf.rb") }
-
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
