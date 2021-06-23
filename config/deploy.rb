@@ -25,7 +25,7 @@ set :rbenv_ruby, '2.7.3'
 
 set :log_level, :debug
 
-set :unicorn_pid, { "#{shared_path}/tmp/pids/unicorn.pid" }
+set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.conf.rb") }
 
